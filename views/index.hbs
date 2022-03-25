@@ -1,0 +1,66 @@
+
+<div class="container pt-5 pb-5">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <!-- Content -->
+            <div class="card p-3">
+                <form>
+                    <h1 class="h2 mb-4">Курс BTC</h1>
+                    {{#if btcData}}
+                        <div class="courses">
+                            <div class="course-item card card-body">
+                                <div class="course-item-title">Курс USD</div>
+                                <div class="course-item-value" data-value="BGN">{{btcData.USD}}</div>
+                            </div>
+                            <div class="course-item card card-body">
+                                <div class="course-item-title">Курс ETH</div>
+                                <div class="course-item-value" data-value="EUR">{{btcData.ETH}}</div>
+                            </div>
+                            <div class="course-item card card-body">
+                                <div class="course-item-title">Курс LTC</div>
+                                <div class="course-item-value" data-value="INR">{{btcData.LTC}}</div>
+                            </div>
+                        </div>
+                    {{/if}}
+                </form>
+                <div id="cr-widget-marquee"
+                     data-coins="bitcoin,ethereum,tether,ripple,cardano"
+                     data-theme="light"
+                     data-show-symbol="true"
+                     data-show-icon="true"
+                     data-show-period-change="true"
+                     data-period-change="24H"
+                     data-api-url="https://api.cryptorank.io/v0"
+                >
+                    <!--                    <a href="https://cryptorank.io">Coins by Cryptorank</a>-->
+                    <script src="/js/marquee.js">defer</script>
+                </div>
+                {{#if getListWorkers}}
+                    <h3>All workers:</h3>
+                    <div id="myChart" width="400" height="800" style="display: flex; flex-wrap: wrap">
+                    {{#each getListWorkers}}
+                        <div class="work" style="margin: 10px">{{@index}} - {{this.id}}</div>
+                        <!--                        <div>Rating: {{this.rating}}</div>-->
+                    {{/each}}
+                    </div>
+                {{/if}}
+                {{#if nanoPoolData}}
+                    <h3>All balance:</h3>
+                    <div style="margin: 10px">Average: {{nanoPoolData.averageMiner.data}}M/h</div>
+                    <div style="margin: 10px">ETH-Balance: {{nanoPoolData.accountBalance.data}}</div>
+                {{/if}}
+
+                <div id="nanoData" width="400" height="400" style="display: flex; justify-content: flex-start">
+                </div>
+            </div>
+            <!-- // Content -->
+        </div>
+        <!-- // col-6 -->
+    </div>
+    <!-- // row -->
+</div>
+<!-- // container -->
+
+
+
+<script defer src="js/script.js"></script>
