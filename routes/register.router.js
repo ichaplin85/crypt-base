@@ -23,7 +23,6 @@ router.post('/', async (req, res) => {
         console.log('Register error', err);
         res.sendStatus(401);
     }
-    // res.end();
 });
 
 module.exports = router;

@@ -52,10 +52,13 @@
 <!--                    <a class="nav-link disabled" href="#">Disabled</a>-->
 <!--                </li>-->
             </ul>
-            <form class="form-inline my-2 my-lg-0" id="search" name="searchForm">
+
+        {{#if userId}}
+        <form class="form-inline my-2 my-lg-0" id="search" name="searchForm">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search ETH Miner" aria-label="Search" name="search">
                 <button class="btn btn-outline-success my-2 my-sm-0" id="button" type="submit">Search miner</button>
             </form>
+        {{/if}}
 
         </div>
     </nav>
